@@ -5,13 +5,14 @@ import { ProductItem } from '../../components/ProductItem';
 import { useApi } from '../../libs/userApi';
 import { GetServerSideProps } from 'next';
 import { Tenant } from '../../Types/Tenant';
-import { useAppContext } from '../../contexts/AppContext';
+import { useAppContext } from '../../contexts/app';
 import { useEffect, useState } from 'react';
 import { Product } from '../../Types/Product';
 
 const Home = (data: Props) => {
 
   const { tenant, setTenant } = useAppContext();
+
 
   useEffect(() => {
     setTenant(data.tenant);

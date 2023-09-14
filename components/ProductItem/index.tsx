@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Product } from '../../Types/Product';
 import styles from './styles.module.css';
-import { useAppContext } from '../../contexts/AppContext';
+import { useAppContext } from '../../contexts/app';
 import { userFormartter } from '../../libs/useFormartter';
 
 type Props = {

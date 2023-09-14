@@ -37,7 +37,7 @@ export const useApi = (tenantSlug: string) => ({
 
       case 'wrdelivery':
         return {
-          slug: 'fastdelivery',
+          slug: 'wrdelivery',
           name: 'WRDelivery',
           mainColor: '#FF0000',
           secondColor: '#00FF00'

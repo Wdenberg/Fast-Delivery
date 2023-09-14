@@ -2,7 +2,7 @@ import { useState } from 'react';
 import style from './styles.module.css';
 
 import SearchIcon from './searchSvg.svg';
-import { useAppContext } from '../../contexts/AppContext';
+import { useAppContext } from '../../contexts/app';
 
 
 type Props = {
