@@ -8,6 +8,7 @@ import { Tenant } from '../../Types/Tenant';
 import { useAppContext } from '../../contexts/app';
 import { useEffect, useState } from 'react';
 import { Product } from '../../Types/Product';
+import { SideBar } from '../../components/SideBar';
 
 const Home = (data: Props) => {
 
@@ -19,7 +20,7 @@ const Home = (data: Props) => {
   }, []);
 
   const [products, setProducts] = useState<Product[]>(data.products);
-
+  const [sidebarOpen, setSideBarOpen] = useState(false)
   const handleSearch = (SearchValue: string) => {
     console.log(`Você esta Buscando Por:${SearchValue}`);
   }
@@ -32,11 +33,21 @@ const Home = (data: Props) => {
             <div className={styles.headerSubitile}>O que deseja pra hoje?</div>
           </div>
           <div className={styles.headerTopRight}>
-            <div className={styles.menuButton}>
+            <div
+
+              onClick={() => setSideBarOpen(true)}
+              className={styles.menuButton}
+
+            >
               <div className={styles.menuButtonLiner} style={{ backgroundColor: tenant?.mainColor }}></div>
               <div className={styles.menuButtonLiner} style={{ backgroundColor: tenant?.mainColor }}></div>
               <div className={styles.menuButtonLiner} style={{ backgroundColor: tenant?.mainColor }}></div>
             </div>
+            <SideBar
+              tenant={data.tenant}
+              open={sidebarOpen}
+              onClose={() => setSideBarOpen(false)}
+            />
           </div>
         </div>
         <div className={styles.headerBottom}>
