@@ -3,7 +3,7 @@ import { User } from "../../Types/User";
 
 
 export type DataType = {
-  toke: string;
+  token: string;
   user: User | null;
 }
 

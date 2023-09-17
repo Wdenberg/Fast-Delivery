@@ -10,14 +10,16 @@ import { IntpuFild } from '../../components/InputField';
 import { Button } from '../../components/Button';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuthContext } from '../../contexts/auth';
 
 const Login = (data: Props) => {
-
+  const { setToken, setUser } = useAuthContext();
   const { tenant, setTenant } = useAppContext();
 
   useEffect(() => {
     setTenant(data.tenant);
   }, []);
+
 
   const router = useRouter();
 
@@ -26,7 +28,12 @@ const Login = (data: Props) => {
 
 
   const hendleSubmit = () => {
-
+    setToken('2050');
+    setUser({
+      name: 'Wdenberg',
+      email: 'Wdenberg42@gmail.com'
+    });
+    router.push(`/${data.tenant.slug}`);
   }
 
   const hendleSigUp = () => {

@@ -6,7 +6,7 @@ import { reducer } from "./reducer";
 export { useAuthContext } from './hook';
 
 const initialState: DataType = {
-  toke: '',
+  token: ' ',
   user: null
 }
 

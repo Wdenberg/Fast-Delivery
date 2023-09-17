@@ -12,7 +12,7 @@ type Props = {
   onClose: () => void;
 }
 export const SideBar = ({ tenant, open, onClose }: Props) => {
-  const { user, setTokon } = useAuthContext();
+  const { user, setToken } = useAuthContext();
   const router = useRouter();
   return (
     <div
@@ -31,6 +31,7 @@ export const SideBar = ({ tenant, open, onClose }: Props) => {
                 <strong>{user.name}</strong>
                 Ultimo pedido há X semanas
               </div>
+
             }
 
             {!user &&
@@ -94,7 +95,7 @@ export const SideBar = ({ tenant, open, onClose }: Props) => {
               icon="logout"
               label="Sair"
               onClick={() => {
-                setTokon('');
+                setToken('');
                 onClose();
               }}
             />

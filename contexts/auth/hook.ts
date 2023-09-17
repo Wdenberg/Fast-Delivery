@@ -8,7 +8,7 @@ export const useAuthContext = () => {
   const { state, dispatch } = useContext(AppContext);
   return {
     ...state,
-    setTokon: (token: String) => {
+    setToken: (token: string) => {
       dispatch({
         type: Actions.SET_TOKEN,
         payload: { token }
