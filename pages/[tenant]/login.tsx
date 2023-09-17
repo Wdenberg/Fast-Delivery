@@ -14,6 +14,7 @@ import { useAuthContext } from '../../contexts/auth';
 
 const Login = (data: Props) => {
   const { setToken, setUser } = useAuthContext();
+
   const { tenant, setTenant } = useAppContext();
 
   useEffect(() => {
@@ -30,10 +31,11 @@ const Login = (data: Props) => {
   const hendleSubmit = () => {
     setToken('2050');
     setUser({
-      name: 'Wdenberg',
-      email: 'Wdenberg42@gmail.com'
+      name: " Wdenberg",
+      email: "wdeneberg42@gmail.com"
     });
     router.push(`/${data.tenant.slug}`);
+
   }
 
   const hendleSigUp = () => {

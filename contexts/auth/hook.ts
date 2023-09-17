@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { AppContext } from "."
 import { Actions } from "./types";
 import { User } from "../../Types/User";
+import { setCookie } from "cookies-next";
 
 
 export const useAuthContext = () => {
@@ -9,6 +10,7 @@ export const useAuthContext = () => {
   return {
     ...state,
     setToken: (token: string) => {
+      setCookie('token', token);
       dispatch({
         type: Actions.SET_TOKEN,
         payload: { token }
@@ -16,7 +18,7 @@ export const useAuthContext = () => {
     },
 
     setUser: (user: User | null) => {
-      dispatch: ({
+      dispatch({
         type: Actions.SET_USER,
         payload: { user }
       });
