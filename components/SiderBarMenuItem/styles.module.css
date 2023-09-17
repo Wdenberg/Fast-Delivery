@@ -1,0 +1,14 @@
+.container {
+  font-weight: 400;
+  font-size: 16px;
+  color: #6a7d8b;
+  padding: 24px 0;
+}
+
+.container span {
+  margin-left: 24px;
+}
+
+.disable {
+  text-decoration: line-through;
+}

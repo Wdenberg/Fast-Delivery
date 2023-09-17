@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { Tenant } from "../../Types/Tenant";
 import { useAuthContext } from "../../contexts/auth";
 import { Button } from "../Button";
+import { SiderBarMenuItem } from "../SiderBarMenuItem";
 import styles from "./styles.module.css";
 
 
@@ -10,7 +12,8 @@ type Props = {
   onClose: () => void;
 }
 export const SideBar = ({ tenant, open, onClose }: Props) => {
-  const { user } = useAuthContext();
+  const { user, setTokon } = useAuthContext();
+  const router = useRouter();
   return (
     <div
       className={styles.container}
@@ -34,7 +37,7 @@ export const SideBar = ({ tenant, open, onClose }: Props) => {
               <Button
                 color={tenant.mainColor}
                 label="Fazer Login"
-                onClick={() => { }}
+                onClick={() => router.push(`/${tenant.slug}/login`)}
                 fill
               />
             }
@@ -49,7 +52,53 @@ export const SideBar = ({ tenant, open, onClose }: Props) => {
         <div className={styles.line}></div>
         <div className={styles.menu}>
 
-          ...
+          <SiderBarMenuItem
+            color={"#6A7D8B"}
+            icon="menu"
+            label="Cardápio"
+            onClick={onClose}
+          />
+          <SiderBarMenuItem
+            color={"#6A7D8B"}
+            icon="cart"
+            label="Sacola"
+            onClick={() => router.push(`/${tenant.slug}/cart`)}
+          />
+          <SiderBarMenuItem
+            color={"#6A7D8B"}
+            icon="favi"
+            label="Favoritos"
+            disable
+            onClick={() => { }}
+          />
+          <SiderBarMenuItem
+            color={"#6A7D8B"}
+            icon="order"
+            label="Meus Pedidos"
+            onClick={() => router.push(`/${tenant.slug}/order`)}
+          />
+          <SiderBarMenuItem
+            color={"#6A7D8B"}
+            icon="config"
+            label="Configurações"
+            disable
+            onClick={() => { }}
+          />
+
+        </div>
+        <div className={styles.menuButton}>
+
+          {user &&
+            <SiderBarMenuItem
+              color={"#6A7D8B"}
+              icon="logout"
+              label="Sair"
+              onClick={() => {
+                setTokon('');
+                onClose();
+              }}
+            />
+          }
         </div>
       </div>
     </div>

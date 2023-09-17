@@ -27,7 +27,7 @@
 
 .header .loginArea {
   border-bottom: 1.5px solid #000;
-  margin-left: 24px;
+  margin-left: px;
   padding-bottom: 48px;
   min-width: 230px;
 }
@@ -43,8 +43,36 @@
   font-weight: bold;
 }
 
+.header .userInfo {
+  font-weight: 400;
+  font-size: 16px;
+  color: #96A3AB;
+}
+
+.header .userInfo strong {
+  font-weight: 500;
+  font-size: 24px;
+  color: #1B1B1B;
+  display: block;
+  margin-bottom: 8px;
+}
+
 .line {
   margin: 0 24px;
   border-bottom: 1.5px solid #E2E2E2;
   margin-top: -1.5px;
+}
+
+.menu {
+  flex: 1;
+  padding: 25px 66px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuButton {
+  display: flex;
+  padding: 25px 66px;
+  display: flex;
+  flex-direction: column;
 }
