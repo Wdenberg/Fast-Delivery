@@ -78,9 +78,11 @@ const Home = (data: Props) => {
 
       {seachText &&
         <>
+          <Banner />
           <div className={styles.searchText}>
             Procurando: <strong>{seachText}</strong>
           </div>
+
           {filterProducts.length > 0 &&
             <div className={styles.Grid}>
 
@@ -92,6 +94,7 @@ const Home = (data: Props) => {
               ))}
             </div>
           }
+
           {filterProducts.length === 0 &&
             <div className={styles.noProduct}>
               <NoProduct color='#E0E0E0' />
@@ -108,7 +111,7 @@ const Home = (data: Props) => {
       {!seachText &&
 
         <>
-          <Banner />
+
           <div className={styles.Grid}>
 
             {products.map((item, index) => (
@@ -150,8 +153,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   // get Loggerd User
 
   //const token = context.req.cookies.token;
-  const token = getCookie('token', context);
-  const user = await api.authorizeToken(token as string);
+  // const token = getCookie('token', context);
+  //const user = await api.authorizeToken(token as string);
 
   // Pegando os Produtos
 
@@ -160,8 +163,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       tenant,
       products,
-      user,
-      token
+      //user,
+      //token
     }
   }
 }
