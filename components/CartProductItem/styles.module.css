@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid rgba(27, 27, 27, 0.1);
+}
+
+.productImge {
+  width: 85px;
+}
+
+.productImge img {
+  width: 100%;
+}
+
+.productInfo {
+  flex: 1;
+  margin-left: 19px;
+}
+
+.productInfo .productCategory {
+  font-size: 12px;
+  font-weight: 400;
+
+  color: rgba(27, 27, 27, 0.5);
+}
+
+.productInfo .productName {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1b1b1b;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.productInfo .productPrice {
+  color: #1b1b1b;
+  font-size: 16px;
+  font-weight: 600;
+}

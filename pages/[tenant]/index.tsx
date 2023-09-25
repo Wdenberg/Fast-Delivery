@@ -151,7 +151,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   // get Loggerd User
-
   //const token = context.req.cookies.token;
   // const token = getCookie('token', context);
   //const user = await api.authorizeToken(token as string);
