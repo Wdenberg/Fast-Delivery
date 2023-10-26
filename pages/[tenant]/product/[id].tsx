@@ -69,6 +69,8 @@ const Product = (data: Props) => {
 
   const handleUpdateQt = (newCount: number) => {
     setQtCount(newCount);
+
+    // Parte da Função de Calcula SubTotais
     const newSubtotal = data.product.price * newCount;
     setSubtotal(newSubtotal);
   }
