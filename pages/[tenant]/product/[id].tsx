@@ -25,7 +25,7 @@ const Product = (data: Props) => {
   const router = useRouter();
   const formartter = userFormartter();
   const [qtCount, setQtCount] = useState(1);
-
+  const [subtotal, setSubtotal] = useState(data.product.price);
 
   const hendleAddToCar = () => {
     let cart: CartCookie[] = [];
@@ -53,7 +53,11 @@ const Product = (data: Props) => {
       cart.push({ id: data.product.id, qt: qtCount });
     }
 
-    console.log(cart)
+    //SubTotais
+
+
+
+
 
     // setting cookie
     setCookie('cart', JSON.stringify(cart));
@@ -65,7 +69,23 @@ const Product = (data: Props) => {
 
   const handleUpdateQt = (newCount: number) => {
     setQtCount(newCount);
+    const newSubtotal = data.product.price * newCount;
+    setSubtotal(newSubtotal);
   }
+
+  // UseEffect para calcular o subtotal sempre que o carrinho muda
+  useEffect(() => {
+    let cart: CartCookie[] = [];
+    let sub = data.product.price;
+    for (let i in cart) {
+      sub += data.product.price * cart[i].qt;
+    }
+
+    // Atualiza o estado do subtotal
+    setSubtotal(sub);
+  }, []);
+
+
 
 
   return (
@@ -112,7 +132,7 @@ const Product = (data: Props) => {
         <div
           className={styles.areaRight}
           style={{ color: data.tenant.mainColor }}
-        >{formartter.formatPrice(data.product.price)}</div>
+        >{formartter.formatPrice(subtotal)} </div>
 
       </div>
 
